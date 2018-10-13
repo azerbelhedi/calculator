@@ -21,7 +21,16 @@ function updateScreen(){
     console.log("b = ",b);
     console.log("res = ",res);
     console.log("");
-
+    // readPosition
+    if(readPosition == 0){
+        document.getElementById("input").innerHTML = a ;
+    }
+    else if (readPosition == 1){
+        document.getElementById("input").innerHTML = a+" "+ op + " " + b ;
+    }
+    else if(readPosition == 2){
+        document.getElementById("input").innerHTML = a+" "+ op + " " + b + "=" + res ;
+    }
     //document.getElementById("#input").innerHTML =  ; /////
 }
 
@@ -35,6 +44,14 @@ function readFromScreen(n){
     updateScreen();
 }
 
+function reset(){
+    readPosition = 0 ;
+    a = res ;
+    b = 0 ;
+    op = 1 ;
+    updateScreen();
+}
+
 function switchVariable(n){
     //1 +
     //2 -
@@ -44,7 +61,7 @@ function switchVariable(n){
     else if(n == 2){op = "-" ; readPosition = 1}
     else if(n == 3){op = "*" ; readPosition = 1}
     else if(n == 4){op = "/" ; readPosition = 1 ;}
-    else if(n == 5){op = "=" ; readPosition = 2 ;}
+    else if(n == 5){readPosition = 2 ; reset() ;}
     updateScreen();
     //op = n ;
     //readPosition++ ;
