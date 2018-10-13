@@ -1,16 +1,14 @@
 <html>
     <head>
         <title>
-            calculator
+            Calculator
         </title>
     </head>
     <link rel="stylesheet" href="css/style.css">
     <body>
-        <div class="all">
-            <div class="output">
-                <div id = "input" > </div>
-            </div>
-            <div class="buttons">
+        <div class="container">
+            <div id="output" id="input"></div>
+            <div class="box">
                 <div class="line">
                     <button onclick = "readFromScreen(7)">7</button>
                     <button onclick = "readFromScreen(8)">8</button>
@@ -31,7 +29,7 @@
                 </div>
                 <div class="line">
                     <button onclick = "readFromScreen(0)">0</button>
-                    <button onclick = "restart()">res</button>
+                    <button>.</button>
                     <button onclick = "switchVariable(5)">=</button>
                     <button onclick = "switchVariable(4)">/</button>    
                 </div>     
