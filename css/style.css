@@ -15,22 +15,33 @@ html {
 
 #input{
     border: 1px solid rgb(248, 244, 244);
-    height: 50px;
+    height: 40px;
     width: 250px;
     margin-bottom: 10px;
+    padding-right: 7px;
+    line-height: 40px;
+    font-size:  1.2em;
+    text-align: right;
 }
 
-button{
+button {
     height: 60px;
     width: 60px;
+    font-size: 15px;
     border-radius: 3px;
+    background-color: #f4511e;
+    border: none;
+    color: #fff;
     cursor: pointer;
     transition: all ease-in 0.3s;
     margin-bottom: 5px;
+    box-shadow: 0px 4px 0px #f0cabf;
+}
+button:focus {
+    outline:0;
 }
 
 button:hover{
-    background-color :#d1caca;
     transition: all ease-out 0.3s;
 }
 
