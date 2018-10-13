@@ -25,7 +25,7 @@ button{
     width: 60px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all ease-in 0.4s;
+    transition: all ease-in 0.3s;
     margin-bottom: 5px;
 }
 
