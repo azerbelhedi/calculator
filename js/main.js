@@ -76,3 +76,37 @@ function restart(){
     op = "+" ;
     readPosition = 0 ;
 }
+
+// read from keyboard 
+document.addEventListener('keydown', function(event){
+    if(event.key == '+'){
+        console.log("+ is pressed") ;
+        switchVariable(1);
+    }
+    if(event.key == '-'){
+        console.log("- is pressed");
+        switchVariable(2) ;
+    }
+    if(event.key == '*'){
+        console.log("* is pressed");
+        switchVariable(3) ;
+    }
+    if(event.key == '/'){
+        console.log("/ is pressed");
+        switchVariable(4) ;
+    }
+    if(event.key == '='){
+        console.log( " = is pressed ");
+        switchVariable(5);
+    }
+    if(event.keyCode == '13'){
+        console.log("enter is pressed");
+        switchVariable(5) ;
+    }
+    for(var i = 0 ; i < 10 ; i++){
+        if(event.key == i){
+            readFromScreen(i);
+            console.log(i," is pressed");
+        }
+    }
+})
