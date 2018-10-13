@@ -17,10 +17,10 @@ function updateScreen(){
     else if(op == "-"){res = a - b ;}
     else if(op == "*"){res = a * b ;}
     else if(op == "/"){res = a / b ; }
-    console.log("a = ",a);
-    console.log("b = ",b);
-    console.log("res = ",res);
-    console.log("");
+    //console.log("a = ",a);
+    //console.log("b = ",b);
+    //console.log("res = ",res);
+    //console.log("");
     // readPosition
     if(readPosition == 0){
         document.getElementById("input").innerHTML = a ;
@@ -66,4 +66,13 @@ function switchVariable(n){
     //op = n ;
     //readPosition++ ;
     
+}
+
+function restart(){
+    document.getElementById("input").innerHTML = "" ;
+    a = 0;
+    b = 0;
+    res = 0 ;
+    op = "+" ;
+    readPosition = 0 ;
 }
