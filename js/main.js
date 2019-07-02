@@ -1,8 +1,9 @@
-console.log(5);
+// console.log(5);
 var a = 0,
   b = 0,
   op = "+",
   res = 0;
+let resTable = [];
 var readPosition = 0;
 // readPosition = 0 : read a
 // readPosition = 1 : read b
@@ -39,6 +40,7 @@ function updateScreen() {
   } else if (readPosition == 2) {
     document.getElementById("input").innerHTML =
       a + " " + op + " " + b + "=" + res;
+    console.log(a, op, b, "=", res);
   }
   //document.getElementById("#input").innerHTML =  ; /////
 }
@@ -82,9 +84,23 @@ function switchVariable(n) {
     readPosition = 1;
   } else if (n == 6) {
     readPosition = 2;
+    // fetching results
+
+    let result = `${a} ${op} ${b} = ${res}`;
+    resTable.push(result);
+    document.getElementById("result").innerHTML =
+      "<ul>" +
+      resTable
+        .map(function(res) {
+          return "<li>" + res + "</li>";
+        })
+        .join("") +
+      "</ul>";
+    // end fetching results
     reset();
   }
   updateScreen();
+
   //op = n ;
   //readPosition++ ;
 }
@@ -98,12 +114,13 @@ function restart() {
   readPosition = 0;
 }
 
+//Color
 document.getElementById("form1").addEventListener("submit", function(event) {
-  changeColor(event);
+  changeColor1(event);
 });
 
 document.getElementById("form2").addEventListener("submit", function(event) {
-  changeColor(event);
+  changeColor2(event);
 });
 
 function hashToRgb(x) {
@@ -119,7 +136,7 @@ function hashToRgb(x) {
   );
 }
 
-function changeColor(event) {
+function changeColor1(event) {
   event.preventDefault();
   let n = document.getElementById("number").value;
   let x = document.getElementById("myColor1").value;
@@ -134,8 +151,42 @@ function changeColor(event) {
   //   rgb(165, 116, 255),
   //   rgb(255, 81, 232)
   // );
-  document.querySelector("#body").style.backgroundImage =
-    "linear-gradient(" + n + "," + rgb1 + "," + rgb2 + ")";
+  z = document.getElementById(
+    "body"
+  ).style.backgroundImage = `linear-gradient(${n}deg,${rgb1},${rgb2})`;
+  console.log(z);
+}
+
+function changeColor2(event) {
+  event.preventDefault();
+  let n = document.getElementById("number").value;
+  let x = document.getElementById("myColor3").value;
+  let y = document.getElementById("myColor4").value;
+
+  console.log("colors", n, x, y);
+
+  let rgb1 = hashToRgb(x);
+  let rgb2 = hashToRgb(y);
+  // background-image: linear-gradient(
+  //   45deg,
+  //   rgb(165, 116, 255),
+  //   rgb(255, 81, 232)
+  // );
+
+  dom = document.querySelectorAll(".button");
+  for (let i = 0; i < 18; i++) {
+    console.log(dom[i]);
+    dom[i].style.backgroundImage = `linear-gradient(${n}deg,${rgb1},${rgb2})`;
+  }
+}
+
+function buttonHide() {
+  var x = document.getElementById("buttonRes");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
 
 // read from keyboard
